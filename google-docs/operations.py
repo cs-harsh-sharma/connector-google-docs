@@ -81,7 +81,7 @@ def build_payload(payload):
 def create_document(config, params, connector_info):
     try:
         url = '{0}/documents'.format(DOCS_API_VERSION)
-        payload = check_payload(payload)
+        payload = check_payload(params)
         response = api_request('POST', url, connector_info, config, data=json.dumps(payload))
         return response
     except Exception as err:
