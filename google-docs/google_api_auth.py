@@ -31,6 +31,8 @@ class GoogleAuth:
         self.client_secret = config.get("client_secret")
         self.verify_ssl = config.get('verify_ssl')
         self.host = config.get("server")
+        if self.host not in ["https://docs.googleapis.com", "docs.googleapis.com"]:
+            return "Invalid Credentials"
         if self.host[:7] == "http://":
             self.host = "https://{0}".format(self.host)
         elif self.host[:8] == "https://":
@@ -136,6 +138,8 @@ def acquire_token(self, REFRESH_TOKEN_FLAG):
 def check(config, connector_info):
     try:
         go = GoogleAuth(config)
+        if go.host not in ["https://docs.googleapis.com", "docs.googleapis.com"]:
+            raise ConnectorError('Invalid Credentials')
         if CONFIG_SUPPORTS_TOKEN:
             if not 'accessToken' in config:
                 token_resp = go.generate_token(REFRESH_TOKEN_FLAG)
