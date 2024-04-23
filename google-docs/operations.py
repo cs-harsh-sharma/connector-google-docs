@@ -107,14 +107,7 @@ def get_document_details(config, params, connector_info):
 def update_documents(config, params, connector_info):
     try:
         url = '{0}/documents/{1}:batchUpdate'.format(DOCS_API_VERSION, params.get('document_id'))
-        payload = {
-            "requests": params.get('additional_parameters'),
-            "writeControl": {
-                "requiredRevisionId": params.get('requiredRevisionId'),
-                "targetRevisionId": params.get('targetRevisionId')
-            }
-        }
-        payload = check_payload(payload)
+        payload = params.get('additional_parameters')
         response = api_request('POST', url, connector_info, config, data=json.dumps(payload))
         return response
     except Exception as err:

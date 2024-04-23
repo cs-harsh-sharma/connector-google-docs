@@ -522,26 +522,6 @@
           "tooltip": "Specify the ID of the document to update its details in Google Docs."
         },
         {
-          "title": "Revision ID",
-          "name": "requiredRevisionId",
-          "description": "(Optional) Specify the ID of the revision to update the document in Google Docs. Use the Get Document Details action to get the revision ID. NOTE: Only the latest revision ID is considered; using older revision ID results in a 404 error.",
-          "type": "text",
-          "visible": true,
-          "editable": true,
-          "required": false,
-          "tooltip": "(Optional) Specify the ID of the revision to update the document in Google Docs. Use the Get Document Details action to get the revision ID. NOTE: Only the latest revision ID is considered; using older revision ID results in a 404 error."
-        },
-        {
-          "title": "Target Revision ID",
-          "name": "targetRevisionId",
-          "description": "(Optional) Specify a recent revision ID to update the document in Google Docs. NOTE: If the target revision is too far behind the latest revision, the request is not processed and returns a 400 bad request error.",
-          "type": "text",
-          "visible": true,
-          "editable": true,
-          "required": false,
-          "tooltip": "(Optional) Specify a recent revision ID to update the document in Google Docs. NOTE: If the target revision is too far behind the latest revision, the request is not processed and returns a 400 bad request error."
-        },
-        {
           "title": "Additional Fields",
           "name": "additional_parameters",
           "type": "json",
